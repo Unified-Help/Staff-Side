@@ -1,6 +1,8 @@
 # Staff-Side
 If you need to add/remove/change links in sidebar/navbar, just look for the comments. The line below the comments is where you will be able to make your necessary changes.
 
+Make sure to "pip install dash" before running staff-side __init__. It will take about two minutes.
+
 If you want to make a new HTML file that extends “base.html”, copy paste the following code into the new html file:
 
 {% extends "/base.html" %}
