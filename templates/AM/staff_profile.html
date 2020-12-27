@@ -1,0 +1,19 @@
+{% extends "/base.html" %}
+
+{% block title %} Unified Help - Staff Profile{% endblock %}
+
+<!-- Any css files/ internal css in here -->
+{% block head %}
+{{ super() }}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='base.css')}}">
+{% endblock %}
+
+<!-- Page content in here -->
+{% block content %}
+<h1>This is the staff profile page</h1>
+{% endblock %}
+
+<!-- Link any js files here -->
+{% block script %}
+{{ super() }}
+{% endblock %}
