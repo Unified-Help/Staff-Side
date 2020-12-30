@@ -4,15 +4,128 @@
 
 <!-- Any css files/ internal css in here -->
 {% block head %}
-{{ super() }}
+{{ super () }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='RG/dashboard.css')}}">
 {% endblock %}
 
 <!-- Page content in here -->
 {% block content %}
-<h1>This is the dashboard page</h1>
+<div class="card  Overview" style = "border:none;">
+  <div class="d-flex justify-content-between  mb-3">
+  <div class="p-2 card-title"><h3>Analytics Overview</h3></div>
+  <div class="p-2">
+    <div class="dropdown">
+      <!--________Place holder for staff user name over here (for top-right dropdown)________-->
+      <button class="btn button3 dropdown-toggle" data-toggle="dropdown">Hello There, {{user_name}}</button>
+      <div class="dropdown-menu">
+        <!--________Dropdown Menu links here________-->
+        <a class="dropdown-item" href="#">Change Password</a>
+        <hr>
+        <a class="dropdown-item" href="/staff_profile">View Profile</a>
+        <hr>
+        <a class="dropdown-item" href="#">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-deck">
+    <div class="card card-header">
+      <div class="card-body text-center">
+        <i class="fas fa-hand-holding-usd"></i>
+        <p class="card-text"><strong>$31000</strong></p>
+        <p class="card-text">Total Monetary Donations</p>
+      </div>
+    </div>
+    <div class="card card-header">
+      <div class="card-body text-center">
+        <i class="fas fa-couch"></i>
+        <p class="card-text"><strong>215</strong></p>
+        <p class="card-text">Total Item Donations</p>
+      </div>
+    </div>
+    <div class="card card-header">
+      <div class="card-body text-center">
+        <i class='fas fa-warehouse'></i>
+        <p class="card-text"><strong>70%</strong></p>
+        <p class="card-text">Inventory Space used</p>
+      </div>
+    </div>
+    <div class="card card-header">
+      <div class="card-body text-center">
+        <i class="fas fa-dollar-sign"></i>
+        <p class="card-text"><strong>$4000</strong></p>
+        <p class="card-text">Total Expenses Incurred</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class ="card chart-group">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 chart card-header">
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <div class="col-6 chart card-header">
+      I m special
+    </div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 chart card-header">
+      test
+    </div>
+    <div class="col-6 chart card-header">
+      test
+    </div>
+</div>
+</div>
+</div>
+
 {% endblock %}
 
 <!-- Link any js files here -->
-{% block script %}
-{{ super() }}
+{% block scripts %}
+{{ super () }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
 {% endblock %}
