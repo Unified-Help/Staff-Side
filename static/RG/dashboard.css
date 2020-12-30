@@ -6,6 +6,23 @@ margin: 3%
   margin: 3%;
 }
 
-.chart{
-  margin: 3%;
+.row{
+  margin-bottom: 3%;
+}
+
+.card-deck > .card{
+  border-radius: 9px;
+}
+
+.card-body > i{
+  font-size: 36px;
+}
+
+.card-text > strong{
+  font-size: 3.0em;
+}
+
+.desc{
+  margin-top: -4%;
+  font-size: 0.8em;
 }
