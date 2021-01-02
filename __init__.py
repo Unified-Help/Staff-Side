@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from RG_manual_upload import ManualUploadForm
 
 app = Flask(__name__)
 app.secret_key = 'any_random_string'
@@ -63,6 +64,9 @@ def upload_dataForm():
 
 @app.route("/manual_insertForm")
 def manual_insertForm():
+    # manual_upload_form = ManualUploadForm(request.form)
+    # if request.method == 'POST' and manual_upload_form.validate()
+
     return render_template('RG/manual_insertForm.html')
 
 
@@ -73,4 +77,4 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

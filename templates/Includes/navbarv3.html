@@ -70,28 +70,11 @@
     }
 
     .top-navbar {
-      border-bottom: 1px solid #f44336;
-    }
-
-    .button3 {
-      background-color: white;
-      color: #f44336;
-      border: 0px solid #f44336;
-      padding: 0.4em 0.8em;
-      margin-top: 0.2em;
-      margin-bottom: 0.2em;
-      font-size: 1.0em;
-    }
-
-    .button3:hover {
-      background-color: #f44336;
-      color: white;
-      transition: 0.4s;
-      text-decoration: none;
+      border-bottom: 2px solid #181f26;
     }
 
     .logo {
-      color: #f44336;
+      color: #181f26;
       font-size: 1.5em;
       padding: 0.4em 0.8em;
       margin-top: 0.2em;
@@ -100,7 +83,7 @@
 
     .logo:hover {
       cursor: pointer;
-      color: #f44336;
+      color: #181f26;
     }
 
   </style>
@@ -179,13 +162,13 @@
   <div id="main">
     <div class="d-flex justify-content-between mb-3 top-navbar">
       <div class="p-2">
-        <button class="button3" id="sidebarToggle"><i class="fas fa-bars"></i>&nbsp;&nbsp;Toggle Sidebar</button>
+        <button class="btn-theme" id="sidebarToggle"><i class="fas fa-bars"></i>&nbsp;&nbsp;Toggle Sidebar</button>
       </div>
-      <a class="p-2 logo" style="text-decoration:none;" href="/">Unified Help</a>
+      <a class="p-2 logo" style="text-decoration:none;" href="/">Unified Help - Staff</a>
       <div class="p-2">
         <div class="dropdown">
           <!--________Place holder for staff user name over here (for top-right dropdown)________-->
-          <button class="btn button3 dropdown-toggle" data-toggle="dropdown">Hello There, {{user_name}}</button>
+          <button class="btn-theme dropdown-toggle" data-toggle="dropdown">Hello There, {{user_name}}</button>
           <div class="dropdown-menu">
             <!--________Dropdown Menu links here________-->
             <a class="dropdown-item" href="#">Change Password</a>
