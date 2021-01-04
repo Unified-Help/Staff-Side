@@ -13,7 +13,7 @@
 <div class="card charts" style="border:none">
   <!-- Top Five Reduced Costs Column-->
   <div class="row">
-  <div class="col-lg-4">
+  <div class="col-lg-3">
     <div class="card card-chart">
       <div class="card-header">
         <h5 class="card-category">Top 5 Reduced Costs This Year</h5>
@@ -104,10 +104,10 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-8">
+  <div class="col-lg-9">
   <div class="card costs-charts" style="border:none;">
     <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-7">
       <!--___________Campaign Costs_____________-->
       <div class="card card-chart">
         <div class="card-header">
@@ -144,11 +144,11 @@
         </div>
         <div class="card-body">
           <div class="chart-area">
-            <div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"></div>
-            <a href="/detailed_analysis"><canvas id="CountryChart" width="567" height="220" class="chartjs-render-monitor" style="display: block; height: 220px; width: 567px;"></canvas></a>
+            <div id="CC_container"></div>
           </div>
         </div>
       </div>
+      <!--___________Inventroy Storage Costs Costs_____________-->
       <div class="card card-chart" style="margin-top:5%;">
         <div class="card-header">
           <div class="d-flex justify-content-between  mb-3">
@@ -184,14 +184,13 @@
         </div>
         <div class="card-body">
           <div class="chart-area">
-            <div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"></div>
-            <canvas id="CountryChart" width="567" height="220" class="chartjs-render-monitor" style="display: block; height: 220px; width: 567px;"></canvas>
+            <div id="ISC_container"></div>
           </div>
         </div>
       </div>
     </div>
     <!--_________Utilities Costs Charts____________-->
-    <div class="col-lg-6">
+    <div class="col-lg-5">
       <div class="card card-chart">
         <div class="card-header">
           <div class="d-flex justify-content-between  mb-3">
@@ -226,15 +225,15 @@
           </div>
         </div>
         <div class="card-body">
+          <div class="card-category"><h1>Water</h1></div>
           <div class="chart-area">
-            <div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"></div>
-            <canvas id="chartLineGreen" width="567" height="220" class="chartjs-render-monitor" style="display: block; height: 220px; width: 567px;"></canvas>
+            <div id="UCW_container"></div>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="margin-top:5%;">
+          <div class="card-category"><h1>Electricity</h1></div>
           <div class="chart-area">
-            <div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"></div>
-            <canvas id="chartLineGreen" width="567" height="220" class="chartjs-render-monitor" style="display: block; height: 220px; width: 567px;"></canvas>
+            <div id="UCE_container"></div>
           </div>
         </div>
       </div>
@@ -276,8 +275,7 @@
       </div>
       <div class="card-body">
         <div class="chart-area">
-          <div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"></div>
-          <canvas id="CountryChart" width="567" height="220" class="chartjs-render-monitor" style="display: block; height: 220px; width: 567px;"></canvas>
+          <div id="AC_container"></div>
         </div>
       </div>
     </div>
@@ -290,4 +288,116 @@
 <!-- Link any js files here -->
 {% block script %}
 {{ super() }}
+<script type="text/javascript">
+
+//--------------- Camapign Costs Line Chart ---------------//
+  // create data
+var data = [
+  ["January", 10000],
+  ["February", 12000],
+  ["March", 18000],
+  ["April", 11000],
+  ["May", 9000]
+];
+
+// create a chart
+chart = anychart.line();
+
+// create a line series and set the data
+var series = chart.line(data);
+
+// set the container id
+chart.container("CC_container");
+
+// initiate drawing the chart
+chart.draw();
+
+//---------------- Inventory Storage Costs Line Chart ---------------//
+  // create data
+var data = [
+  ["January", 10000],
+  ["February", 12000],
+  ["March", 18000],
+  ["April", 11000],
+  ["May", 9000]
+];
+
+// create a chart
+chart = anychart.line();
+
+// create a line series and set the data
+var series = chart.line(data);
+
+// set the container id
+chart.container("ISC_container");
+
+// initiate drawing the chart
+chart.draw();
+
+//--------------- UCW Line Chart ---------------//
+  // create data
+var data = [
+  ["January", 10000],
+  ["February", 12000],
+  ["March", 18000],
+  ["April", 11000],
+  ["May", 9000]
+];
+
+// create a chart
+chart = anychart.line();
+
+// create a line series and set the data
+var series = chart.line(data);
+
+// set the container id
+chart.container("UCW_container");
+
+// initiate drawing the chart
+chart.draw();
+
+//--------------- UCE Costs Line Chart ---------------//
+  // create data
+var data = [
+  ["January", 10000],
+  ["February", 12000],
+  ["March", 18000],
+  ["April", 11000],
+  ["May", 9000]
+];
+
+// create a chart
+chart = anychart.line();
+
+// create a line series and set the data
+var series = chart.line(data);
+
+// set the container id
+chart.container("UCE_container");
+
+// initiate drawing the chart
+chart.draw();
+
+//--------------- Administration Costs Line Chart ---------------//
+  // create data
+var data = [
+  ["January", 10000],
+  ["February", 12000],
+  ["March", 18000],
+  ["April", 11000],
+  ["May", 9000]
+];
+
+// create a chart
+chart = anychart.line();
+
+// create a line series and set the data
+var series = chart.line(data);
+
+// set the container id
+chart.container("AC_container");
+
+// initiate drawing the chart
+chart.draw();
+</script>
 {% endblock %}

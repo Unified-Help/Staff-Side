@@ -1,17 +1,21 @@
-import pandas as pd
 import csv
-from collections import defaultdict
 
 
 class Data:
+    count_id = 0
 
-    def __init__(self, data_field):
+    def __init__(self, year, month, data_field, value):
+        Data.count_id += 1
+        self.__data_id = Data.count_id
+        self.__year = year
+        self.__month = month
         self.__data_field = data_field
-        self.__year = ""
-        self.__month = ""
-        self.__value = 0
+        self.__value = value
 
     # Accessor
+    def get_data_id(self):
+        return self.__data_id
+
     def get_data_field(self):
         return self.__data_field
 
@@ -25,6 +29,9 @@ class Data:
         return self.__value
 
     # Mutator Methods
+    def set_data_id(self, data_id):
+        self.__data_id = data_id
+
     def set_data_field(self, data_field):
         self.__data_field = data_field
 
@@ -39,24 +46,39 @@ class Data:
 
 
 def read_csv():
-    many_data = []
+    campaign_costs_dict = {}
+    Inv_storage_costs_dict = {}
+    UCE_costs_dict = {}
+    UCW_costs_dict = {}
+    admin_costs_dict = {}
     try:
-        df = pd.read_csv("costs.csv", index_col = "YYYY-MM")
-        df_dict = df.to_dict()
-        print(df_dict)
-        for key in df_dict:
-            for year_month,d_value in df_dict[key].items():
-                data_info = Data(key)
-                data_info.set_year(year_month[0:4])
-                data_info.set_month(year_month[5:8])
-                data_info.set_value(d_value)
-                many_data.append(data_info)
+        with open("costs.csv", "r") as data_file:
+            data_reader = csv.DictReader(data_file)
+            for line in data_reader:
+                cc_data_object = Data(line["Year"], line["Month"], "Campaign Costs", line["Campaign Costs"])
+                campaign_costs_dict[cc_data_object.get_data_id()] = cc_data_object
+
+                ISC_data_object = Data(line["Year"], line["Month"], "Inventory Storage Costs", line["Inventory Storage Costs"])
+                Inv_storage_costs_dict[ISC_data_object.get_data_id()] = ISC_data_object
+
+                UCE_data_object = Data(line["Year"], line["Month"], "Utilities Costs: Electricity", line["Utilities Costs: Electricity"])
+                UCE_costs_dict[UCE_data_object.get_data_id()] = UCE_data_object
+
+                UCW_data_object = Data(line["Year"], line["Month"], "Utilities Costs: Water", line["Utilities Cost: Water"])
+                UCW_costs_dict[UCW_data_object.get_data_id()] = UCW_data_object
+
+                AC_data_object = Data(line["Year"], line["Month"], "Administration Costs", line["Administration Costs"])
+                admin_costs_dict[AC_data_object.get_data_id()] = AC_data_object
 
     except FileNotFoundError:
         print("File not Found!")
 
-    for s in many_data:
-        print("{}, {}, {}, {}".format(s.get_data_field(), s.get_year(), s.get_month(), s.get_value()))
+    print(campaign_costs_dict)
+    print(Inv_storage_costs_dict)
+    print(UCE_costs_dict)
+    print(UCW_costs_dict)
+    print(admin_costs_dict)
 
 
 read_csv()
+
