@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <!-- AnyChart JS CDN -->
     {% block head %}
     <!-- Bootstrap 4.5.3 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -23,6 +24,8 @@
     {% endblock %}
 </div>
 
+
+<script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js"></script>
 {% block script %}
 <!-- jQuery 3.5.1, Popper 1.16.1, Bootstrap 4.5.2 JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"

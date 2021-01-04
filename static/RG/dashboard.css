@@ -26,3 +26,12 @@ margin: 3%
   margin-top: -4%;
   font-size: 0.8em;
 }
+
+.chart-area{
+  height: 500px;
+}
+
+#IDA_container, #IS_container, #On_vs_Off_container, #EI_container{
+  height: 100%;
+  width: 100%;
+}
