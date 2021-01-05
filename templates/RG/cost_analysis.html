@@ -119,14 +119,14 @@
               <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
                 <label class="btn btn-sm btn-dark btn-simple active" id="0">
                   <input type="radio" name="options" checked="">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Month</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Year</span>
                   <span class="d-block d-sm-none">
                     <i class="tim-icons icon-single-02"></i>
                   </span>
                 </label>
                 <label class="btn btn-sm btn-dark btn-simple" id="1">
                   <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Year</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Previous Year</span>
                   <span class="d-block d-sm-none">
                     <i class="tim-icons icon-gift-2"></i>
                   </span>
@@ -159,14 +159,14 @@
               <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
                 <label class="btn btn-sm btn-dark btn-simple active" id="0">
                   <input type="radio" name="options" checked="">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Month</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Year</span>
                   <span class="d-block d-sm-none">
                     <i class="tim-icons icon-single-02"></i>
                   </span>
                 </label>
                 <label class="btn btn-sm btn-dark btn-simple" id="1">
                   <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Year</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Previous Year</span>
                   <span class="d-block d-sm-none">
                     <i class="tim-icons icon-gift-2"></i>
                   </span>
@@ -201,14 +201,14 @@
               <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
                 <label class="btn btn-sm btn-dark btn-simple active" id="0">
                   <input type="radio" name="options" checked="">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Month</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Year</span>
                   <span class="d-block d-sm-none">
                     <i class="tim-icons icon-single-02"></i>
                   </span>
                 </label>
                 <label class="btn btn-sm btn-dark btn-simple" id="1">
                   <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Year</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Previous Year</span>
                   <span class="d-block d-sm-none">
                     <i class="tim-icons icon-gift-2"></i>
                   </span>
@@ -250,14 +250,14 @@
             <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
               <label class="btn btn-sm btn-dark btn-simple active" id="0">
                 <input type="radio" name="options" checked="">
-                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Month</span>
+                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Year</span>
                 <span class="d-block d-sm-none">
                   <i class="tim-icons icon-single-02"></i>
                 </span>
               </label>
               <label class="btn btn-sm btn-dark btn-simple" id="1">
                 <input type="radio" class="d-none d-sm-none" name="options">
-                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">This Year</span>
+                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Previous Year</span>
                 <span class="d-block d-sm-none">
                   <i class="tim-icons icon-gift-2"></i>
                 </span>
@@ -291,14 +291,8 @@
 <script type="text/javascript">
 
 //--------------- Camapign Costs Line Chart ---------------//
-  // create data
-var data = [
-  ["January", 10000],
-  ["February", 12000],
-  ["March", 18000],
-  ["April", 11000],
-  ["May", 9000]
-];
+// create data
+var data = {{ data|safe }}
 
 // create a chart
 chart = anychart.line();

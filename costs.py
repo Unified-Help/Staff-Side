@@ -1,4 +1,5 @@
 import csv
+import datetime
 
 
 class Data:
@@ -58,13 +59,16 @@ def read_csv():
                 cc_data_object = Data(line["Year"], line["Month"], "Campaign Costs", line["Campaign Costs"])
                 campaign_costs_dict[cc_data_object.get_data_id()] = cc_data_object
 
-                ISC_data_object = Data(line["Year"], line["Month"], "Inventory Storage Costs", line["Inventory Storage Costs"])
+                ISC_data_object = Data(line["Year"], line["Month"], "Inventory Storage Costs",
+                                       line["Inventory Storage Costs"])
                 Inv_storage_costs_dict[ISC_data_object.get_data_id()] = ISC_data_object
 
-                UCE_data_object = Data(line["Year"], line["Month"], "Utilities Costs: Electricity", line["Utilities Costs: Electricity"])
+                UCE_data_object = Data(line["Year"], line["Month"], "Utilities Costs: Electricity",
+                                       line["Utilities Costs: Electricity"])
                 UCE_costs_dict[UCE_data_object.get_data_id()] = UCE_data_object
 
-                UCW_data_object = Data(line["Year"], line["Month"], "Utilities Costs: Water", line["Utilities Cost: Water"])
+                UCW_data_object = Data(line["Year"], line["Month"], "Utilities Costs: Water",
+                                       line["Utilities Cost: Water"])
                 UCW_costs_dict[UCW_data_object.get_data_id()] = UCW_data_object
 
                 AC_data_object = Data(line["Year"], line["Month"], "Administration Costs", line["Administration Costs"])
@@ -73,12 +77,22 @@ def read_csv():
     except FileNotFoundError:
         print("File not Found!")
 
-    print(campaign_costs_dict)
-    print(Inv_storage_costs_dict)
-    print(UCE_costs_dict)
-    print(UCW_costs_dict)
-    print(admin_costs_dict)
+    now = datetime.datetime.now()
+
+    data_sent = []
+    for key, value in campaign_costs_dict.items():
+        cc = campaign_costs_dict[key].get_data_id()
+        if now.year == int(value.get_year()):
+            data = [cc, value.get_year(), value.get_month(), value.get_data_field(), value.get_value()]
+            data_sent.append(data)
+
+    value = []
+    for result in data_sent:
+        hi = [result[2], result[4]]
+        value.append(hi)
+
+    print(value)
+
 
 
 read_csv()
-
